@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const MainContainer = styled.div`
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -10,7 +11,16 @@ const MainContainer = styled.div`
   width: 500px;
   margin: 0 auto;
   height: 100vh;
+  padding: 1rem;
 `;
+
+const ContainerInterno = styled.div`
+  background-color: azure;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 40px 1fr 80px;
+`
 
 class App extends React.Component {
   state = {};
@@ -18,8 +28,12 @@ class App extends React.Component {
   //funções aqui
 
   render() {
-    return <MainContainer></MainContainer>;
-  }
+    return <MainContainer>
+      <ContainerInterno>
+        
+      </ContainerInterno>
+    </MainContainer>;
+    }
 }
 
 export default App;
