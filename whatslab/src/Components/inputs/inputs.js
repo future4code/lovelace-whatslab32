@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import SendWhite from './img/send_white.png'
+import React, { Component } from "react";
+import styled from "styled-components";
+import SendWhite from "./img/send_white.png";
 
 const DivInputs = styled.div`
   box-sizing: border-box;
   grid-row: 3/-1;
   height: 100%;
   width: 100%;
-  
-  form{
+
+  div {
     width: 100%;
     height: 100%;
     display: grid;
@@ -17,11 +17,11 @@ const DivInputs = styled.div`
     box-sizing: border-box;
     align-items: center;
     justify-items: center;
-    background-color: #F0F0F0;
+    background-color: #f0f0f0;
     border-radius: 0 0 15px 15px;
   }
-  input{
-    background-color: #FFFFFF;
+  input {
+    background-color: #ffffff;
     width: 95%;
     box-sizing: border-box;
     margin-right: 10px;
@@ -30,16 +30,14 @@ const DivInputs = styled.div`
     padding: 10px;
     border-radius: 15px;
     border: 1px solid transparent;
-    box-shadow: 2px 3px 6px rgba(0,0,0,0.05);
+    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.05);
     color: #919191;
 
-
-    &:focus{
-    outline: 0;
+    &:focus {
+      outline: 0;
     }
-
   }
-  button{
+  button {
     border-radius: 30px;
     width: 50px;
     height: 50px;
@@ -48,26 +46,40 @@ const DivInputs = styled.div`
     justify-content: center;
     border: 1px solid transparent;
     background-color: white;
-    box-shadow: 2px 3px 6px rgba(0,0,0,0.05);
+    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.05);
     transition: all 0.2s ease;
 
-    :hover{
+    :hover {
       cursor: pointer;
       background-color: #f7f7f7;
     }
   }
-`
+`;
 
 export default class Inputs extends Component {
   render() {
     return (
       <DivInputs>
-        <form action="submit">
-          <input placeholder="Nome" type="text" />
-          <input placeholder="Mensagem..." type="text" />
-          <button><img src={SendWhite} alt="Enviar" /></button>
-        </form>
+        <div>
+          <input
+            value={this.props.valueUsuario}
+            onChange={this.props.onChrangeUsuario}
+            placeholder="Nome"
+            type="text"
+          />
+          <input
+            value={this.props.valueMensagem}
+            onChange={this.props.onChrangeMensagem}
+            placeholder="Mensagem..."
+            type="text"
+          />
+          <button
+            onClick={this.props.onClickBotao}  
+          >
+            <img src={SendWhite} alt="Enviar" />
+          </button>
+        </div>
       </DivInputs>
-    )
+    );
   }
 }
