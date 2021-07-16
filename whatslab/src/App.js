@@ -45,12 +45,13 @@ adicionaMensagem = () => {
   const novoMensagem = [...this.state.mensagem, novaMensagem]
   this.setState({mensagem: novoMensagem});
 }
-onChangeInputMensagem = (event) => {
-  this.setState({valorInputMensagem: event.target.value})
-}
 onChangeInputUsuario = (event) => {
   this.setState({valorInputUsuario: event.targe.value})
 }
+onChangeInputMensagem = (event) => {
+  this.setState({valorInputMensagem: event.target.value})
+}
+
   //funções aqui
 
   render() {
