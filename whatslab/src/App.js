@@ -17,7 +17,7 @@ const MainContainer = styled.div`
 `;
 
 const ContainerInterno = styled.div`
-  background-color: #ffffff;
+  background-color: #E5DDD5;
   width: 500px;
   height: 100%;
   display: grid;
@@ -33,7 +33,7 @@ const ContainerMensagens = styled.div`
   padding: 1rem;
   height: 100%;
   max-width: 100%;
-  /* overflow: auto; */
+  overflow: auto;
   
   div {
     margin: 10px auto 10px 10px;
@@ -44,7 +44,7 @@ const ContainerMensagens = styled.div`
     width: auto;
 
     height: auto;
-    padding: 8px;
+    padding: 10px;
     background-color: #F0F0F0;
     border-radius: 15px;
     box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.05);
@@ -53,13 +53,15 @@ const ContainerMensagens = styled.div`
   }
 
   span{ 
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
-  }  
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;  }  
 
   span:nth-child(1) {
-    font-size: 15px;
   }
   span:nth-child(2) {
     margin-bottom: 5px;
@@ -102,7 +104,7 @@ class App extends React.Component {
     const listaDeMensagems = this.state.arrMensagens.map((elemento, index) => {
       return (
         <div key={index}>
-          <span>{elemento.usuario}</span>
+          <span><strong>{elemento.usuario}</strong></span>
           <span>{elemento.mensagem}</span>
         </div>
       );

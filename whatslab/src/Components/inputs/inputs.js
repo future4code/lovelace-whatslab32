@@ -8,6 +8,7 @@ const DivInputs = styled.div`
   height: 100%;
   width: 100%;
 
+
   div {
     width: 100%;
     height: 100%;
