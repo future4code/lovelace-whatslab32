@@ -20,7 +20,7 @@ const DivInputs = styled.div`
     background-color: #F0F0F0;
     border-radius: 0 0 15px 15px;
   }
-  textarea{
+  input{
     background-color: #FFFFFF;
     width: 95%;
     box-sizing: border-box;
@@ -63,8 +63,8 @@ export default class Inputs extends Component {
     return (
       <DivInputs>
         <form action="submit">
-          <textarea placeholder="Nome" type="text" />
-          <textarea placeholder="Mensagem..." type="text" />
+          <input placeholder="Nome" type="text" />
+          <input placeholder="Mensagem..." type="text" />
           <button><img src={SendWhite} alt="Enviar" /></button>
         </form>
       </DivInputs>
