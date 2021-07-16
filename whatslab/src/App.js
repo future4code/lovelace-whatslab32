@@ -36,7 +36,7 @@ const ContainerMensagens = styled.div`
   overflow: auto;
   
   div {
-    margin: 10px auto 10px 10px;
+    margin: 7px auto 7px 7px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -46,7 +46,7 @@ const ContainerMensagens = styled.div`
     height: auto;
     padding: 10px;
     background-color: #F0F0F0;
-    border-radius: 15px;
+    border-radius: 0 15px 15px 15px;
     box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.05);
     max-width: 100%;
     
