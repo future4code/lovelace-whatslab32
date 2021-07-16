@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Inputs from './Components/inputs/inputs'
 import Header from './Components/Header/Header'
-
+import Mensagens from './Components/Mensagens/Mensagens' 
 const MainContainer = styled.div`
   box-sizing: border-box;
   display: flex;
@@ -28,14 +28,36 @@ const ContainerInterno = styled.div`
 `
 
 class App extends React.Component {
-  state = {};
+  state = {
+    mensagens :[
+      {
+        usuario: "",
+        mensagem: "",
+      }
+    ]
+  };
 
+adicionaMensagem = () => {
+  const novaMensagem = {
+    usuario: this.state.valorInputUsuario,
+    mensagem: this.state.valorInputMensagem,
+  }
+  const novoMensagem = [...this.state.mensagem, novaMensagem]
+  this.setState({mensagem: novoMensagem});
+}
+onChangeInputMensagem = (event) => {
+  this.setState({valorInputMensagem: event.target.value})
+}
+onChangeInputUsuario = (event) => {
+  this.setState({valorInputUsuario: event.targe.value})
+}
   //funções aqui
 
   render() {
     return <MainContainer>
       <ContainerInterno>
         <Header></Header>
+        <Mensagens></Mensagens>
         <Inputs></Inputs>
       </ContainerInterno>
     </MainContainer>;
