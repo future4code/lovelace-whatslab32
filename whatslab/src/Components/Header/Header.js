@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const DivHeader = styled.div`
-  background-color: #F0F0F0;
+  background-color: #EDEDED;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,6 +11,7 @@ const DivHeader = styled.div`
   grid-row: 1/2;
   border-radius: 15px 15px 0 0 ;
   font-size: 15px;
+
 `
 
 export default class Header extends Component {

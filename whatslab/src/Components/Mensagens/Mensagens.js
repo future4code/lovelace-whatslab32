@@ -5,7 +5,7 @@ class Mensagens extends Component {
     render() {
       return (
         <div>
-          
+          {this.elementoMensagem}
         </div>
       )
     }
