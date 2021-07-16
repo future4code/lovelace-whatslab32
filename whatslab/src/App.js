@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Inputs from './Components/inputs/inputs'
 
 const MainContainer = styled.div`
   box-sizing: border-box;
@@ -30,7 +31,7 @@ class App extends React.Component {
   render() {
     return <MainContainer>
       <ContainerInterno>
-        
+        <Inputs></Inputs>
       </ContainerInterno>
     </MainContainer>;
     }
