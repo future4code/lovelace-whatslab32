@@ -23,13 +23,13 @@ const DivInputs = styled.div`
   }
   input {
     background-color: #ffffff;
-    width: 95%;
+    width: 98%;
     box-sizing: border-box;
     margin-right: 10px;
     height: 100%;
     resize: none;
-    padding: 10px;
-    border-radius: 15px;
+    padding: 10px 15px;
+    border-radius: 40px;
     border: 1px solid transparent;
     box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.05);
     color: #919191;
