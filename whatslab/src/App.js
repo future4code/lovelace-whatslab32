@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Inputs from "./Components/inputs/inputs";
 import Header from "./Components/Header/Header";
 
@@ -17,7 +17,7 @@ const MainContainer = styled.div`
 `;
 
 const ContainerInterno = styled.div`
-  background-color: #E5DDD5;
+  background-color: #e5ddd5;
   width: 500px;
   height: 100%;
   display: grid;
@@ -34,32 +34,16 @@ const ContainerMensagens = styled.div`
   height: 100%;
   max-width: 100%;
   overflow: auto;
-  
-  div {
-    margin: 7px auto 7px 7px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: auto;
 
-    height: auto;
-    padding: 10px;
-    background-color: #F0F0F0;
-    border-radius: 0 15px 15px 15px;
-    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.05);
-    max-width: 100%;
-    
-  }
-
-  span{ 
+  span {
     -ms-word-break: break-all;
     word-break: break-all;
     word-break: break-word;
     -ms-hyphens: auto;
     -moz-hyphens: auto;
     -webkit-hyphens: auto;
-    hyphens: auto;  }  
+    hyphens: auto;
+  }
 
   span:nth-child(1) {
   }
@@ -68,10 +52,44 @@ const ContainerMensagens = styled.div`
   }
 `;
 
+const BlocoMensagem = styled.div`
+  max-width: 70%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.05);
+  height: auto;
+  padding: 10px;
+
+  margin: ${(props) => {
+    if (props.usuario === "eu") {
+      return "3px 7px 3px auto";
+    } else {
+      return "3px auto 3px 7px";
+    }
+  }};
+
+  border-radius: ${(props) => {
+    if (props.usuario === "eu") {
+      return "15px 15px 0 15px";
+    } else {
+      return "0 15px 15px 15px";
+    }
+  }};
+
+  background-color: ${(props) => {
+    if (props.usuario === "eu") {
+      return "#DCF8C6";
+    } else {
+      return "#f0f0f0";
+    }
+  }};
+`;
+
 class App extends React.Component {
   state = {
-    arrMensagens: [ ],
-
+    arrMensagens: [],
 
     valorInputUsuario: "",
     valorInputMensagem: "",
@@ -87,9 +105,8 @@ class App extends React.Component {
 
     this.setState({ arrMensagens: novoArrayMensagem });
 
-    this.setState({valorInputMensagem: ""})
-    this.setState({valorInputUsuario: ""})
-
+    this.setState({ valorInputMensagem: "" });
+    this.setState({ valorInputUsuario: "" });
   };
 
   onChangeInputUsuario = (event) => {
@@ -102,12 +119,25 @@ class App extends React.Component {
 
   render() {
     const listaDeMensagems = this.state.arrMensagens.map((elemento, index) => {
-      return (
-        <div key={index}>
-          <span><strong>{elemento.usuario}</strong></span>
-          <span>{elemento.mensagem}</span>
-        </div>
-      );
+      if (elemento.usuario.toLowerCase() === "eu" || elemento.usuario.toLowerCase() === "") {
+        return (
+          <BlocoMensagem key={index} usuario={"eu"}>
+            {/* <span>
+              <strong>{elemento.usuario}</strong>
+            </span> */}
+            <span>{elemento.mensagem}</span>
+          </BlocoMensagem>
+        );
+      } else {
+        return (
+          <BlocoMensagem key={index} usuario={"outro"}>
+            <span>
+              <strong>{elemento.usuario}</strong>
+            </span>
+            <span>{elemento.mensagem}</span>
+          </BlocoMensagem>
+        );
+      }
     });
 
     return (
