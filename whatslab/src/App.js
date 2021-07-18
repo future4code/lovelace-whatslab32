@@ -1,91 +1,13 @@
 import React from "react";
-import styled, { css } from "styled-components";
 import Inputs from "./Components/inputs/inputs";
 import Header from "./Components/Header/Header";
 
-const MainContainer = styled.div`
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  background-color: #272727;
-  width: 100vw;
-  margin: 0 auto;
-  height: 100vh;
-  padding: 1rem;
-`;
+import { MainContainer } from './App.styled'
+import { ContainerInterno } from './App.styled'
+import { ContainerMensagens } from './App.styled'
+import { MensagemEUsuario } from './App.styled'
+import { BlocoMensagem } from './App.styled'
 
-const ContainerInterno = styled.div`
-  background-color: #e5ddd5;
-  width: 500px;
-  height: 100%;
-  display: grid;
-  grid-template-rows: 60px 1fr 80px;
-  border-radius: 15px;
-  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.05);
-`;
-
-const ContainerMensagens = styled.div`
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column-reverse;
-  padding: 1rem;
-  height: 100%;
-  max-width: 100%;
-  overflow: auto;
-
-  span {
-    -ms-word-break: break-all;
-    word-break: break-all;
-    word-break: break-word;
-    -ms-hyphens: auto;
-    -moz-hyphens: auto;
-    -webkit-hyphens: auto;
-    hyphens: auto;
-  }
-
-  span:nth-child(1) {
-  }
-  span:nth-child(2) {
-    margin-bottom: 5px;
-  }
-`;
-
-const BlocoMensagem = styled.div`
-  max-width: 70%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.05);
-  height: auto;
-  padding: 10px;
-
-  margin: ${(props) => {
-    if (props.usuario === "eu") {
-      return "3px 7px 3px auto";
-    } else {
-      return "3px auto 3px 7px";
-    }
-  }};
-
-  border-radius: ${(props) => {
-    if (props.usuario === "eu") {
-      return "15px 15px 0 15px";
-    } else {
-      return "0 15px 15px 15px";
-    }
-  }};
-
-  background-color: ${(props) => {
-    if (props.usuario === "eu") {
-      return "#DCF8C6";
-    } else {
-      return "#f0f0f0";
-    }
-  }};
-`;
 
 class App extends React.Component {
   state = {
@@ -106,7 +28,7 @@ class App extends React.Component {
     this.setState({ arrMensagens: novoArrayMensagem });
 
     this.setState({ valorInputMensagem: "" });
-    this.setState({ valorInputUsuario: "" });
+    // this.setState({ valorInputUsuario: "" });
   };
 
   onChangeInputUsuario = (event) => {
@@ -130,12 +52,14 @@ class App extends React.Component {
         );
       } else {
         return (
-          <BlocoMensagem key={index} usuario={"outro"}>
-            <span>
-              <strong>{elemento.usuario}</strong>
-            </span>
-            <span>{elemento.mensagem}</span>
-          </BlocoMensagem>
+          <MensagemEUsuario>
+            <p>
+              {elemento.usuario}
+            </p>
+            <BlocoMensagem key={index} usuario={"outro"}>
+              <span>{elemento.mensagem}</span>
+            </BlocoMensagem>
+          </MensagemEUsuario>
         );
       }
     });

@@ -28,7 +28,7 @@ const DivInputs = styled.div`
     margin-right: 10px;
     height: 100%;
     resize: none;
-    padding: 10px;
+    padding: 10px 15px;
     border-radius: 40px;
     border: 1px solid transparent;
     box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.05);
